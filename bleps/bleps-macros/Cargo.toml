@@ -1,0 +1,30 @@
+[package]
+name = "bleps-macros"
+version = "0.1.0"
+edition = "2021"
+authors = ["Bjoern Quentin <bjoern.quentin@mobile-j.d>"]
+description  = "HCI BLE peripheral stack"
+repository   = "https://github.com/bjoernQ/bleps"
+license      = "MIT OR Apache-2.0"
+
+keywords = [
+    "no-std",
+]
+categories = [
+    "embedded",
+    "hardware-support",
+    "no-std",
+]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+quote = "1.0"
+proc-macro2 = "1.0"
+litrs = "0.2.3"
+syn = { version = "1.0.99", features = ["full"] }
+uuid = "1.1.2"
+
+[dev-dependencies]
+bleps = { path = "../bleps" }

@@ -1,0 +1,26 @@
+[package]
+name = "sd-card"
+version = "0.1.0"
+authors = ["LittleGuest <2190975784@qq.com>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+default=["native"]
+native = ["esp-idf-sys/native"]
+
+[dependencies]
+embedded-sdmmc = "0.4.0"
+esp-idf-hal = "0.40.1"
+esp-idf-sys = { version = "0.32.1", features = ["binstart"] }
+
+
+[build-dependencies]
+embuild = "0.30.4"
