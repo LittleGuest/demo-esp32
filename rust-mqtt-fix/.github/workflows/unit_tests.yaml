@@ -1,0 +1,18 @@
+on: [pull_request]
+
+name: UnitTests
+
+jobs:
+  unit_tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Run Unit tests
+        run: RUST_LOG=trace cargo test unit
